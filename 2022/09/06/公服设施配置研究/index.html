@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>大数据视角下，城市公共服务设施空间配置特征研究 | 国地科技大数据小组</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="城市基本公共服务设施是城市内满足一定区域居民基本需求的公共设施。十六届六中全会以来，基本公共服务设施的配置问题备受社会关注，基本公共服务设施配置水平是衡量人居环境品质的重要指标之一，也是城市规划实践、城市体检的重要内容之一。 因此，本文利用高德POI、手机信令等多源大数据，从多样性的维度挖掘公共服务设施的空间配置特征，评估广州市公共服务设施发展状况，以期为未来城市高质量发展提供一定参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据视角下，城市公共服务设施空间配置特征研究">
+<meta property="og:url" content="http://example.com/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/index.html">
+<meta property="og:site_name" content="国地科技大数据小组">
+<meta property="og:description" content="城市基本公共服务设施是城市内满足一定区域居民基本需求的公共设施。十六届六中全会以来，基本公共服务设施的配置问题备受社会关注，基本公共服务设施配置水平是衡量人居环境品质的重要指标之一，也是城市规划实践、城市体检的重要内容之一。 因此，本文利用高德POI、手机信令等多源大数据，从多样性的维度挖掘公共服务设施的空间配置特征，评估广州市公共服务设施发展状况，以期为未来城市高质量发展提供一定参考。">
+<meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE1%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E6%A0%B8%E5%AF%86%E5%BA%A6%E5%88%86%E5%B8%83-16716133341462.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE2%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E5%8C%BA%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E5%B7%AE%E5%BC%82-16716142289391.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE3%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E5%8C%BA%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE4%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E8%A1%97%E9%81%93%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE5%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E8%A1%97%E9%81%93%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE6%20%E4%BA%BA%E5%8F%A3%E5%AF%86%E5%BA%A6%E5%88%86%E5%B8%83%E4%B8%8E%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%A9%BA%E9%97%B4%E5%85%B3%E8%81%94%E6%80%A7.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221171111204.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE%207%20%E4%BA%BA%E5%8F%A3%E4%B8%8E%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%A9%BA%E9%97%B4%E9%80%82%E9%85%8D%E6%80%A7.jpg">
+<meta property="article:published_time" content="2022-09-06T08:49:22.000Z">
+<meta property="article:modified_time" content="2022-12-21T09:22:45.898Z">
+<meta property="article:author" content="Haiqi Wang">
+<meta property="article:tag" content="公服设施配置；大数据">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE1%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E6%A0%B8%E5%AF%86%E5%BA%A6%E5%88%86%E5%B8%83-16716133341462.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="国地科技大数据小组" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">国地科技大数据小组</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-公服设施配置研究" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/" class="article-date">
+  <time datetime="2022-09-06T08:49:22.000Z" itemprop="datePublished">2022-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大数据视角下，城市公共服务设施空间配置特征研究
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>城市基本公共服务设施是城市内满足一定区域居民基本需求的公共设施。十六届六中全会以来，基本公共服务设施的配置问题备受社会关注，基本公共服务设施配置水平是衡量人居环境品质的重要指标之一，也是城市规划实践、城市体检的重要内容之一。</p>
+<p>因此，本文利用高德POI、手机信令等多源大数据，从多样性的维度挖掘公共服务设施的空间配置特征，评估广州市公共服务设施发展状况，以期为未来城市高质量发展提供一定参考。</p>
+<span id="more"></span>
+
+<h3 id="广州服务类设施空间分布格局"><a href="#广州服务类设施空间分布格局" class="headerlink" title="广州服务类设施空间分布格局"></a>广州服务类设施空间分布格局</h3><h4 id="公共服务设施分布密度"><a href="#公共服务设施分布密度" class="headerlink" title="公共服务设施分布密度"></a>公共服务设施分布密度</h4><p>根据《“十三五”推进基本公共服务均等化规划》、基本公共服务设施的相关定义与研究，研究提取了医疗、购物、教育、文化、体育和休闲六个类别的POI进行分析。</p>
+<p>通过核密度计算发现，广州市公共服务设施总体呈现从中心到边缘递减的格局（图1）。中心城区——越秀区、天河区、海珠区、荔湾区服务设施分布密集，空间配置水平相对较高；中心外围的番禺区、白云区的设施密度中等；远离市中心的区——增城区、从化区、南沙区设施密度较低。广州市公共服务设施数量整体呈现聚集性高、空间分布差异大的分布特征。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE1%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E6%A0%B8%E5%AF%86%E5%BA%A6%E5%88%86%E5%B8%83-16716133341462.gif" alt="图1 广州市公共服务设施核密度分布"></p>
+<center>图1  广州市公共服务设施核密度分布</center>
+
+
+<h4 id="各区公共服务设施数量配置差异"><a href="#各区公共服务设施数量配置差异" class="headerlink" title="各区公共服务设施数量配置差异"></a>各区公共服务设施数量配置差异</h4><p>从设施绝对数量上看，各区公共服务设施总数差异较大，白云区数量最多，达到9738个。白云区、番禺区、天河区及海珠区设施数量在7000以上；花都区、荔湾区、越秀区及黄埔区设施配置水平中等，设施数量在4000上下；南沙区、增城区及从化区总量较低。</p>
+<p>图2详细展现了广州市各类公共服务设施POI的数量。从类别上说，购物和医疗设施配置较完备，各区购物设施数量均高于其他类设施，而医疗设施数量位居第二，成为第二大类设施。相对于教育和医疗等满足日常刚性需求的设施，文化及休闲设施配置强度则较低。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE2%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E5%8C%BA%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E5%B7%AE%E5%BC%82-16716142289391.gif" alt="图2 广州市各区公共服务设施配置差异"></p>
+<center>图2 广州市各区公共服务设施配置差异</center>
+
+
+<h3 id="服务类设施多样性空间分布特征"><a href="#服务类设施多样性空间分布特征" class="headerlink" title="服务类设施多样性空间分布特征"></a>服务类设施多样性空间分布特征</h3><p>随着我国城市发展阶段的不断提升，城市环境建设需要供给多样化、精细化的基本公共服务设施，以满足相应服务范围内的居民多维度和多层次的需求。因此，服务设施多样性指数能够衡量一个区域内城市环境的丰富程度和生活便利程度。</p>
+<p>研究通过香农熵值的多样性计算，衡量了广州市各区和街道的多样性特征。从城区整体看，与设施分布密度不同，多样性并未完全呈现“中心-边缘”的递减趋势。</p>
+<p>广州各区的多样性分值都不低于0.8，多样性水平均较高，整体设施配置均衡度较高。平均多样性最大值出现在越秀区，说明该区各类公共服务设施配置齐全且数量均衡，展现出老城区的建成环境丰富度。最小值出现在毗邻的白云区。尽管白云区内集中了大量消费购物类设施，但由于其他种类设施配置数量相对较低，导致多样性分值偏低。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE3%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E5%8C%BA%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7.jpg" alt="图3 广州市各区公共服务设施多样性"><center>图3 广州市各区公共服务设施多样性</center></p>
+<p>为进一步分析各区内部的设施多样性差异，本研究也对各街道设施多样性进行了分析。从全局空间分布上看，多样性较低的街道主要为自然生态资源较为丰富的地区或正在开发的区域（图4）。</p>
+<p>高多样性街道主要位于城区范围和人口分布较为密集的地区。在一些非中心城区，如增城区良口镇，尽管总POI数量不多，但多样性值也较高，说明该地区总体设施配置较为均衡。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE4%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E8%A1%97%E9%81%93%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7.jpg" alt="图4 广州市各街道公共服务设施多样性"></p>
+<center>图4 广州市各街道公共服务设施多样性</center>
+
+<center> 注：街道空间划分依据：2014年国家统计局数据</center>
+
+
+<p>从局部空间聚集性看（图5），通过Local Moran’s I指数计算进一步验证了中心城区，尤其是越秀区街道的公共服务设施多样性呈现高度聚集，其余市区街道多样性指数没有显著聚集特征。</p>
+<p>因此，从街道层级看，尽管大量设施集中于中心城区，但广州市公共服务设施多样性总体的空间均衡性较好。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE5%20%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%90%84%E8%A1%97%E9%81%93%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90.jpg" alt="图5 广州市各街道公共服务设施多样性聚类分析"></p>
+<center>图5 广州市各街道公共服务设施多样性聚类分析</center>
+
+
+<h3 id="基于MIC系数的公共服务设施空间适配性差异"><a href="#基于MIC系数的公共服务设施空间适配性差异" class="headerlink" title="基于MIC系数的公共服务设施空间适配性差异"></a>基于MIC系数的公共服务设施空间适配性差异</h3><p>为检测公共服务设施多样性与人口分布的差异，本研究利用相互关系强度进行空间适配性差异测量，即测度人口密度与多样性程度之间的空间关联性程度——假定人口密度越高，多样性程度也越高，空间适配性程度越好。</p>
+<p>首先，本研究利用第七次人口普查数据及手机信令数据提取了广州各街道总人口及生活居住人口的密度，然后与各街道的多样性指数进行匹配。将数据标准化后，基于中心城区和外围城区分别进关联性统计分析（图6）。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE6%20%E4%BA%BA%E5%8F%A3%E5%AF%86%E5%BA%A6%E5%88%86%E5%B8%83%E4%B8%8E%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%A9%BA%E9%97%B4%E5%85%B3%E8%81%94%E6%80%A7.jpg" alt="图6 人口密度分布与公共服务设施多样性空间关联性"></p>
+<center>图6 人口密度分布与公共服务设施多样性空间关联性</center>
+
+<p>为了对研究引入最大互信息系数（maximal information coefficient(MIC)）检验各街道生活居住人口分布与公共服务设施多样性之间的空间适配性关系。MIC相关性系数越高，说明二者联系性越强。MIC 计算公式如下：</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221171111204.png" alt="image-20221221171111204"></p>
+<p>其中X，Y 为所测度变量。</p>
+<p>从结果可以看出，首先，中心城区整体空间适配性略低于外围城区（图7），说明中心城区公共服务设施配置与人口密度分布的空间差异度高于外围城区。</p>
+<p>一方面可能由于中心城区整体人口密度较高，而外围城区人口分布相对集中，因而外围城区公共服务设施与人口密度关系更为紧密。</p>
+<p>另一方面，这也说明中心城区的公共服务设施空间配置仍有优化的潜力，正如图5聚类分析结果所体现的，中心城区部分地区的多样性仍有待提升。</p>
+<p>其次，居住人口密度与多样性指数的关联性高于总体人口密度，凸显了公共服务设施的功能导向性，也说明人群细分研究可以有效提升公共服务设施配置优化的精准性。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE%207%20%E4%BA%BA%E5%8F%A3%E4%B8%8E%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%A9%BA%E9%97%B4%E9%80%82%E9%85%8D%E6%80%A7.jpg" alt="图 7 人口与公共服务设施多样性空间适配性"></p>
+<h3 id="结论与思考"><a href="#结论与思考" class="headerlink" title="结论与思考"></a>结论与思考</h3><p>为创建宜居的城市生活环境，城市基本公共服务设施的空间配置既要注重数量供给，也要注重类型分配，将数量和类型与其所服务的人口密度进行有效匹配。从广州市城市公共服务设施总体多样性较好，说明公共资源配置的整体公平性较高。</p>
+<p>另一方面，尽管公共服务设施数量和多样性都很高，从人口密度和设施多样性的空间适配性分布看，广州市区内仍有优化空间。由于城市不同地段的人口无论在数量还是在结构上都处于动态变化，因此，城市基本公共服务设施的空间配置需要在数量上和类型上进行有针对性的动态更新。有鉴于此，基于高空间粒度的城市基本公共服务设施的空间配置特征分析尤为重要。</p>
+<p>城市推演模型通过对城市发展过程中各种问题进行情景再现，推演城市未来发展态势，为城市管理决策提供技术支持，是新型智慧城市建设的重要支撑。</p>
+<p>国地科技城市推演平台作为城市推演模型的示范应用实践，能够提供城市多业务场景应用。依托深度融合高性能计算技术、三维引擎技术的城市信息模型（CIM）基础平台，综合运用人工智能、大数据、物联网、3S等新一代信息技术，可以更高效、科学、合理地辅助城市管理决策。</p>
+<p>注：本文涉及的地图，来源均为高德地图。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/" data-id="clbxg5x9m0003fktn03a55mdz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%EF%BC%9B%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">公服设施配置；大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/12/06/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A%E5%85%AC%E5%B9%B3%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          城市公共交通公平性研究——以广州天河区为例
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%EF%BC%9B%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">公服设施配置；大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82%EF%BC%9B%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/" rel="tag">智慧城市；公共交通</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%EF%BC%9B%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">公服设施配置；大数据</a> <a href="/tags/%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82%EF%BC%9B%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/" style="font-size: 10px;">智慧城市；公共交通</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/12/06/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A%E5%85%AC%E5%B9%B3%E6%80%A7/">城市公共交通公平性研究——以广州天河区为例</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/">大数据视角下，城市公共服务设施空间配置特征研究</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haiqi Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
