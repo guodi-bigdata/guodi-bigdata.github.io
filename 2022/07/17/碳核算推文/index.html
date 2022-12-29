@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>碳排放核算技术和碳时空动态可视化研究 | 国地科技大数据小组</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="明晰碳排放计算方法，了解不同碳排核算模型，推演我国碳排放的过去与未来，是实现“双碳”目标的基石，也是开展减排增汇的工作基础。2021年9月，国地科技与南京大学、中国国土勘测规划院联合共建的自然资源部碳中和与国土空间优化重点实验室，发布了“国土空间碳排放核算系统”。该系统能够核算各类土地利用变化产生的碳排放和各种类型的人类活动碳排放，可自动生成各种土地利用类型的综合碳排放清单，为开展国土空间优化和“">
+<meta property="og:type" content="article">
+<meta property="og:title" content="碳排放核算技术和碳时空动态可视化研究">
+<meta property="og:url" content="http://example.com/2022/07/17/%E7%A2%B3%E6%A0%B8%E7%AE%97%E6%8E%A8%E6%96%87/index.html">
+<meta property="og:site_name" content="国地科技大数据小组">
+<meta property="og:description" content="明晰碳排放计算方法，了解不同碳排核算模型，推演我国碳排放的过去与未来，是实现“双碳”目标的基石，也是开展减排增汇的工作基础。2021年9月，国地科技与南京大学、中国国土勘测规划院联合共建的自然资源部碳中和与国土空间优化重点实验室，发布了“国土空间碳排放核算系统”。该系统能够核算各类土地利用变化产生的碳排放和各种类型的人类活动碳排放，可自动生成各种土地利用类型的综合碳排放清单，为开展国土空间优化和“">
+<meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE1%20%E5%90%84%E9%83%A8%E9%97%A8%E7%A2%B3%E6%8E%92%E6%94%BE%E6%BA%90.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE2%20%E7%A2%B3%E6%8E%92%E6%94%BE%E6%B5%8B%E7%AE%97%E6%96%B9%E6%B3%95%E4%BD%93%E7%B3%BB.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221174404213.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221174524708.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%85%A8%E5%9B%BD%E7%9C%81%E4%BC%9A%E5%9F%8E%E5%B8%82%E7%A2%B3%E6%8E%92%E6%94%BE%E5%8F%98%E5%8C%96%E5%9B%BE%EF%BC%88CEADs%EF%BC%89.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE5%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%A2%B3%E6%8E%92%E6%94%BE%E6%A0%B8%E7%AE%97%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E5%9B%BE.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221175037223.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE7%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%A2%B3%E6%8E%92%E6%94%BE%E8%84%B1%E9%92%A9%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%9B%BE.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221175238900.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE9%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%9C%E9%97%B4%E7%81%AF%E5%85%89%E5%88%86%E5%B8%83%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(a).png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(b).png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(c).png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(d).png">
+<meta property="article:published_time" content="2022-07-17T09:36:15.000Z">
+<meta property="article:modified_time" content="2022-12-21T09:58:21.167Z">
+<meta property="article:author" content="Haiqi Wang">
+<meta property="article:tag" content="碳达峰">
+<meta property="article:tag" content="碳中和">
+<meta property="article:tag" content="国土空间规划">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE1%20%E5%90%84%E9%83%A8%E9%97%A8%E7%A2%B3%E6%8E%92%E6%94%BE%E6%BA%90.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="国地科技大数据小组" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">国地科技大数据小组</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-碳核算推文" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/07/17/%E7%A2%B3%E6%A0%B8%E7%AE%97%E6%8E%A8%E6%96%87/" class="article-date">
+  <time datetime="2022-07-17T09:36:15.000Z" itemprop="datePublished">2022-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      碳排放核算技术和碳时空动态可视化研究
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>明晰碳排放计算方法，了解不同碳排核算模型，推演我国碳排放的过去与未来，是实现“双碳”目标的基石，也是开展减排增汇的工作基础。2021年9月，国地科技与南京大学、中国国土勘测规划院联合共建的自然资源部碳中和与国土空间优化重点实验室，发布了“国土空间碳排放核算系统”。该系统能够核算各类土地利用变化产生的碳排放和各种类型的人类活动碳排放，可自动生成各种土地利用类型的综合碳排放清单，为开展国土空间优化和“双碳”目标研究夯实基础。</p>
+<span id="more"></span>
+
+<p>本研究从核算模型和数据集的角度，利用动态可视化的方式，展现了全国省际和主要城市二十年的碳排放时空格局。同时基于夜间灯光数据，对广东省碳排放变迁进行了反演测算，并对比不同碳排放数据集结果的差异和演化趋势，为建立碳排放核算标准及后续国土空间规划实现节能增汇的目标提供参考。</p>
+<h3 id="碳核算方式及主要数据集"><a href="#碳核算方式及主要数据集" class="headerlink" title="碳核算方式及主要数据集"></a>碳核算方式及主要数据集</h3><p><strong>1.确定碳排放源</strong></p>
+<p>根据联合国政府间气候变化专门委员会（IPCC）的分类，温室气体排放主要来自能源活动、工业生产、农业活动、土地利用变化与林业、废弃物处理五大部门。图1列举了碳排放计算中常见的排放源。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE1%20%E5%90%84%E9%83%A8%E9%97%A8%E7%A2%B3%E6%8E%92%E6%94%BE%E6%BA%90.jpg" alt="图1 各部门碳排放源"></p>
+<center>图1 各部门碳排放源</center>
+
+<p><strong>2.碳排放计算方式</strong></p>
+<p>目前，碳排放的测算方法主要包括“碳核算”及“碳估算”两大类。碳核算主要包括：排放因子法、质量平衡法及实测法。由于部分地区的碳排放测算存在着研究方法及数据的限制，则需要采用模型估算法进行测算。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE2%20%E7%A2%B3%E6%8E%92%E6%94%BE%E6%B5%8B%E7%AE%97%E6%96%B9%E6%B3%95%E4%BD%93%E7%B3%BB.png" alt="图2 碳排放测算方法体系"></p>
+<center>图2 碳排放测算方法体系</center>
+
+<p><strong>3.碳排放核算体系</strong></p>
+<p>碳排放核算体系主要针对建立地区碳排数据集的方式，可以分为自上而下和自下而上两类。其中，自上至下指国家或政府层面宏观测量，通过对主要的碳排放源进行部门分类并构建子目录，直至涵盖各类排放源；自下而上指基于分能源品种、部门、设备的活动水平、单位热量和含碳量等参数，通过逐层累加核算得到的总排放量，主要包括企业自测与披露、地方对中央的汇报等。表1列出了目前较为常用且有代表性的中国碳排放数据集。</p>
+<center>表1 代表性中国碳排放数据集</center>
+
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221174404213.png" alt="image-20221221174404213"></p>
+<h3 id="全国碳排放时空格局分析"><a href="#全国碳排放时空格局分析" class="headerlink" title="全国碳排放时空格局分析"></a>全国碳排放时空格局分析</h3><p><strong>1.全国省际碳排放时空演化格局</strong></p>
+<p>从空间格局看，近二十年全国碳排放水平较高且集中的区域为华北地区、华东部分地区和黄河流域，占全国总排放量的68%。这些区域是现阶段和未来减排工作的重点区域和市场。从时间演化上看，碳排量增长速率在2012年后总体呈下降趋势。各区域碳排量时间演化可以分为三个类别：</p>
+<p><strong>(1) 碳排低增速低：</strong>以西南地区为主，亦是我国实现碳达峰较早的区域。</p>
+<p><strong>(2) 持续增长但增速放缓：</strong>以珠三角、长三角为代表，这些地区经历了快速经济增长，人均碳排放介于5.7-11.4吨，略高于国家平均水平。这部分省份以37%的排放贡献了48%的GDP。</p>
+<p><strong>(3) 碳排增速相对较高：</strong>以能源基地、高能耗产业为主的省份居多。这些省份经济发展相对处于中等水平，但人均碳排放增长迅速。全国人均碳排放最高的三个省份分别是内蒙古、宁夏和新疆，高于国家平均水平。这些省份以29%的排放贡献了12%的GDP。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221174524708.png" alt="image-20221221174524708"></p>
+<center>图3 2000年以来中国省际碳排放时空格局（数据来源：中国碳核算数据库）</center>
+
+<p><strong>2.全国主要城市碳排放趋势变迁</strong></p>
+<p>由于空间数据存在的空间分异性和可变面元问题，不同空间尺度的CO2排放特征会有所不同。比如省级尺度的CO2排放格局研究，往往会掩盖城市发展的差异性和多样性。中国城市范围碳排放量与总排放量的占比高达85%，因此城市无疑是节能减排的重要区域。由此可见，分析全国主要城市碳排趋势（直辖市、省会和副省级城市），能够更精确了解碳排放驱动因子。</p>
+<p>我国主要城市间碳排放总体和经济发展水平有较大关系。作为中国经济重心之一，上海经济高速增长带动能源需求，使得碳排放长期居于高位。其余碳排放较高的城市绝大多数属于工业比重较高或资源型城市。而以旅游、商贸、高新技术等产业为主的城市碳排放则相对保持低位，如深圳、成都、贵阳等。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%85%A8%E5%9B%BD%E7%9C%81%E4%BC%9A%E5%9F%8E%E5%B8%82%E7%A2%B3%E6%8E%92%E6%94%BE%E5%8F%98%E5%8C%96%E5%9B%BE%EF%BC%88CEADs%EF%BC%89.gif" alt="全国省会城市碳排放变化图（CEADs）"></p>
+<center>图4 中国主要城市碳排放变化图（数据来源：中国碳核算数据库）</center> 
+
+<h3 id="广东省碳排放时空格局"><a href="#广东省碳排放时空格局" class="headerlink" title="广东省碳排放时空格局"></a>广东省碳排放时空格局</h3><p>为进一步探索区域碳排放时空格局，本研究以中国GDP第一大省——广东省为例，研究区域碳排放时空上的动态变化趋势。</p>
+<p><strong>1.广东省碳排放空间特征</strong></p>
+<p>从空间视角看，产业构成和分布对碳排放的空间格局影响最大。由于第二产业分布较多，广州市、佛山市及惠州市的碳排放总量持续保持前三。2000年及2005年，湛江市及茂名市的石化产业蓬勃发展，也导致碳排放急剧上升。深圳市得益于高新技术产业为主的产业结构，经济发展迅速，碳排放总量相对较低。 </p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE5%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%A2%B3%E6%8E%92%E6%94%BE%E6%A0%B8%E7%AE%97%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E5%9B%BE.gif" alt="图5 广东省碳排放核算空间分布图"></p>
+<center>图5 广东省碳排放核算空间分布图</center>
+
+<p>从碳排放强度（指每单位国内生产总值所带来的碳排放量）看，广东省总体和各市碳排放强度在2010年之后均有大幅下降。表明随着技术进步，单位GDP所带来的CO2排放减少。2008年金融危机后，珠三角城市群工业产业结构/能源结构优化调整，能源利用水平提高。因此，促进技术进步可能是降低城市CO2直接排放的有效途径。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221175037223.png" alt="image-20221221175037223"></p>
+<center>图6 广东省碳排放强度（数据来源：广东省统计年鉴）</center>
+
+<p><strong>2.广东省碳排放脱钩分析</strong></p>
+<p>碳排放脱钩水平代表经济增长与碳排放间的关联性，脱钩强度越强，经济发展与碳排放关联性越弱。通过Tapio脱钩模型计算可看出：①2000-2015年广东省整体脱钩城市增多，2010年67%城市实现碳排放脱钩，2015年之前基本全部实现弱脱钩。②2015-2018年广东省以弱脱钩状态为主，但负脱钩城市数量回弹。尽管碳排放强度降低，但由于城市经济与人口持续增长，导致脱钩进程有所减慢，尤其以人口保持高增长率的深圳市变化最为明显。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE7%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%A2%B3%E6%8E%92%E6%94%BE%E8%84%B1%E9%92%A9%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%9B%BE.gif" alt="图7 广东省碳排放脱钩状态变化图"></p>
+<center>图7 广东省碳排放脱钩状态变化图</center>
+
+<p><strong>3.珠三角重点城市碳排放动态预测</strong></p>
+<p>本研究基于Kaya恒等式和不同碳排放情景分析法，对珠三角重点城市2020-2035年不同情景下的碳排放（高碳、基线、低碳情景）进行了动态模拟，为城市制定碳达峰方案提供参考。结果显示：①广州、深圳、佛山及珠海在所有情景下均可提前实现碳达峰和低碳发展。②中山、 江门的碳排放量在2020年后呈发散演化趋势，在高碳情景下有可能难以实现2030年碳达峰目标，因此需要着力制定碳排放策略。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/image-20221221175238900.png" alt="image-20221221175238900"><center> 图8 珠三角城市碳排放动态模拟结果</center></p>
+<p><strong>4.夜间灯光与城镇碳排放高度相关</strong></p>
+<p>夜间灯光主要集中在城市区域的这一特性（图9），使得深入研究碳排放和城市用地关系有了可能性。本研究利用珞珈一号的夜间灯光数据，测算了夜间灯光亮度与城镇用地碳排放之间的关系。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE9%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%9C%E9%97%B4%E7%81%AF%E5%85%89%E5%88%86%E5%B8%83%E5%9B%BE.png" alt="图9 广东省夜间灯光分布图"></p>
+<center>图9 广东省夜间灯光分布图（数据来源：武汉大学测绘遥感信息工程国家重点实验室）</center>
+
+<p>从广东省模拟结果可以看出，虽然各数据集的核算方法不同导致结果有所差异，但回归模型均表明城市夜间灯光亮度与碳排放间存在着较强正相关（图10-abc）。不仅如此，城镇土地碳排放和夜间灯光亮度存在极高的相关性（图10-d），决定系数R2达到0.94。因此，夜间灯光亮度可以为城镇内部空间节能优化提供数据参考。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(a).png" alt="图10-图(a)"></p>
+<center>a</center>
+
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(b).png" alt="图10-图(b)"></p>
+<center>b</center>
+
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(c).png" alt="图10-图(c)"></p>
+<center>c</center>
+
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE10-%E5%9B%BE(d).png" alt="图10-图(d)"></p>
+<center>d</center>
+
+<center>注：夜间灯光与碳排放数据均经过归一化处理</center>
+  <center>图10 广东省各市灯光辐射总亮度与碳排总量关系</center>
+
+<h3 id="结语与展望"><a href="#结语与展望" class="headerlink" title="结语与展望"></a>结语与展望</h3><p><strong>1.碳排放和地区产业结构高度相关</strong></p>
+<p>从全国的角度看，碳排放总量与产业结构变化具有极大的相关性，尤其是第二产业。全国城市碳减排重点应该放在资源型城市和工业城市。减排的重点地区放在西北和华北地区，这些城市和地区的人均碳排放量较高，且碳排放强度也偏高。加强技术研发，推行碳捕集等技术落地，提高碳排放管理水平，是降低CO2排放的可行方案。</p>
+<p>国地科技目前具备全方位支持生态系统固碳增汇的产品研发及项目实践经验。已实施研发了国土空间规划能碳“一张图”、数字生态碳汇管理平台等“双碳”信息化产品，可为“双碳”工作进行数智赋能。</p>
+<p><strong>2.碳核算助力国土空间规划治理逻辑建构</strong></p>
+<p>由于土地利用和碳排放的高相关性，国土空间规划应在规划编制中增加碳风险情境模拟，通过估算碳排放风险，进行差异化减排目标制定和干预措施，研究建构兼顾区域发展和碳指标核算的空间治理逻辑。</p>
+<p>此前，自然资源部碳中和与国土空间优化重点实验室根据江苏省碳排放管理实际情况，提出了四条面向碳中和国土空间治理的对策建议，包括高碳汇空间保护和低碳空间打造等内容。该项建议已发表在《决策参阅2021年第37期》，并获得省主要领导的肯定性批示。</p>
+<p><strong>3.碳排放计算标准确立与土地利用</strong></p>
+<p>目前的碳排放计算，各权威碳排放数据集的测算结果都存有一定差异。因此，可以考虑针对不同尺度和核算目标，建立一定的碳排放计算标准，使得碳排放核算有准则可循。自然资源部碳中和与国土空间优化重点实验室基于IPAT和IBIS模型，在预测人为碳排放和陆地生态系统碳汇的基础上，探讨了不同土地利用方式承载的碳汇分布。以此为基础，未来将继续探索制订土地利用碳排放标准。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/07/17/%E7%A2%B3%E6%A0%B8%E7%AE%97%E6%8E%A8%E6%96%87/" data-id="clc8ucejz0007x8tncroxavzl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92/" rel="tag">国土空间规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A2%B3%E4%B8%AD%E5%92%8C/" rel="tag">碳中和</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A2%B3%E8%BE%BE%E5%B3%B0/" rel="tag">碳达峰</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          大数据视角下，城市公共服务设施空间配置特征研究
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/" rel="tag">公共交通</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE/" rel="tag">公共服务设施配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92/" rel="tag">国土空间规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E6%BA%90%E6%95%B0%E6%8D%AE/" rel="tag">多源数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82/" rel="tag">智慧城市</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A2%B3%E4%B8%AD%E5%92%8C/" rel="tag">碳中和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A2%B3%E8%BE%BE%E5%B3%B0/" rel="tag">碳达峰</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/" style="font-size: 10px;">公共交通</a> <a href="/tags/%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">公共服务设施配置</a> <a href="/tags/%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92/" style="font-size: 10px;">国土空间规划</a> <a href="/tags/%E5%A4%9A%E6%BA%90%E6%95%B0%E6%8D%AE/" style="font-size: 20px;">多源数据</a> <a href="/tags/%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82/" style="font-size: 20px;">智慧城市</a> <a href="/tags/%E7%A2%B3%E4%B8%AD%E5%92%8C/" style="font-size: 10px;">碳中和</a> <a href="/tags/%E7%A2%B3%E8%BE%BE%E5%B3%B0/" style="font-size: 10px;">碳达峰</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/12/06/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A%E5%85%AC%E5%B9%B3%E6%80%A7/">城市公共交通公平性研究——以广州天河区为例</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/">大数据视角下，城市公共服务设施空间配置特征研究</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/17/%E7%A2%B3%E6%A0%B8%E7%AE%97%E6%8E%A8%E6%96%87/">碳排放核算技术和碳时空动态可视化研究</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haiqi Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
