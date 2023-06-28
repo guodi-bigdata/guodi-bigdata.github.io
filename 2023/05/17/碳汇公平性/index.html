@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>三维规划时空大数据①|城市绿地碳汇公平性研究 | 国地科技-大数据小组</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="碳达峰碳中和国土空间规划" />
+  
+  
+  
+  
+  <meta name="description" content="城市作为人类活动的主要载体，占据着约占全球80%的碳排放。许多研究表明，可以通过改变城市空间形态、优化城市空间格局以减少城市碳排放。城市绿地作为城市中重要的人工景观，不仅为市民提供生态、休闲、娱乐服务，还能通过绿地植物光合作用固碳，起到增碳汇、减碳排的效果，对于改善城市景观、优化城市格局有着重要作用。以往研究发现，城市区域发展水平的差异会影响绿地碳汇分布的差异，换言之，城市社区环境差异也会影响其社">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三维规划时空大数据①|城市绿地碳汇公平性研究">
+<meta property="og:url" content="http://example.com/2023/05/17/%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7/index.html">
+<meta property="og:site_name" content="国地科技-大数据小组">
+<meta property="og:description" content="城市作为人类活动的主要载体，占据着约占全球80%的碳排放。许多研究表明，可以通过改变城市空间形态、优化城市空间格局以减少城市碳排放。城市绿地作为城市中重要的人工景观，不仅为市民提供生态、休闲、娱乐服务，还能通过绿地植物光合作用固碳，起到增碳汇、减碳排的效果，对于改善城市景观、优化城市格局有着重要作用。以往研究发现，城市区域发展水平的差异会影响绿地碳汇分布的差异，换言之，城市社区环境差异也会影响其社">
+<meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE%201%202019-2021%E5%B9%B4%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%88%86%E5%B8%83%E5%9B%BE.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281100941.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281100740.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281100373.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101203.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101348.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101597.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101659.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101825.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102516.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102735.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102868.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102235.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102157.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281103154.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281103013.gif">
+<meta property="article:published_time" content="2023-05-16T23:15:15.000Z">
+<meta property="article:modified_time" content="2023-06-28T03:03:23.933Z">
+<meta property="article:author" content="Haiqi Wang">
+<meta property="article:tag" content="碳达峰">
+<meta property="article:tag" content="碳中和">
+<meta property="article:tag" content="国土空间规划">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE%201%202019-2021%E5%B9%B4%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%88%86%E5%B8%83%E5%9B%BE.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="国地科技-大数据小组" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 5px;"  width="298px" height="140px" alt="Hike News" src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B0%8F%E7%BB%84.jpg">
+              </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-碳汇公平性" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      三维规划时空大数据①|城市绿地碳汇公平性研究
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/05/17/%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7/" class="article-date">
+	  <time datetime="2023-05-16T23:15:15.000Z" itemprop="datePublished">May 17, 2023</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%8F%8C%E7%A2%B3/">双碳</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>城市作为人类活动的主要载体，占据着约占全球80%的碳排放。许多研究表明，可以通过改变城市空间形态、优化城市空间格局以减少城市碳排放。城市绿地作为城市中重要的人工景观，不仅为市民提供生态、休闲、娱乐服务，还能通过绿地植物光合作用固碳，起到增碳汇、减碳排的效果，对于改善城市景观、优化城市格局有着重要作用。以往研究发现，城市区域发展水平的差异会影响绿地碳汇分布的差异，换言之，城市社区环境差异也会影响其社区绿地碳汇水平，进而形成不均衡的城市绿地碳汇分布。</p>
+<span id="more"></span>
+
+<p>由此，本研究聚焦社区尺度下的绿地碳汇空间分布，探索城市绿地建设缺口以及优化潜力。研究首先从人口、经济、气候环境等因素进行社区画像，以此测算社区绿地碳汇需求优先程度；同时结合分析社区绿地碳汇的实际水平，形成城市绿地碳汇公平性指标，用以找出城市绿地碳汇提升潜力地区。研究有助于辅助城市绿地需求预测和估算、城市环境增汇改造区域识别以及城市碳汇功能提升策略设计。</p>
+<h3 id="广州市城市绿地碳汇和城市社区画像"><a href="#广州市城市绿地碳汇和城市社区画像" class="headerlink" title="广州市城市绿地碳汇和城市社区画像"></a>广州市城市绿地碳汇和城市社区画像</h3><h4 id="广州市总体城市绿地碳汇"><a href="#广州市总体城市绿地碳汇" class="headerlink" title="广州市总体城市绿地碳汇"></a>广州市总体城市绿地碳汇</h4><p>本研究基于Google Earth Engine计算了广州市连续三年的城市绿地碳汇分布情况。通过比较三年的碳汇平均值可得知，城市绿地碳汇呈现出北部高于中南部的特征。可能主要由于广州北部的建成区开发面积相对较低，绿地斑块完整性高。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%9B%BE%201%202019-2021%E5%B9%B4%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%88%86%E5%B8%83%E5%9B%BE.jpg" alt="图 1 2019-2021年广州市城市绿地碳汇分布图"></p>
+<p>城市社区画像是一种反映社区社会经济和环境特征的综合方法。本研究利用手机信令人口、房价、城中村占比、年平均气温、空气质量指数数据，量化城市社区特征。其中，居住人口反映了社区的规模和人口密度，房价可以反应社区的经济水平，城中村占比可以反映社区的建成环境质量，年平均气温用来测算社区的气候特征，空气质量指数可以间接测度社区的环境质量。</p>
+<p>从气温分布图可以看出：①受热岛效应影响，中心城区的社区气温偏高；②“北三区”——从化、花都、增城区内的社区整体气温偏低且区域内的温差较大；③南沙区内的社区气温偏高，区域内部温差较小。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281100941.jpg" alt="图2 广州市各社区年平均温度热力图"></p>
+<p>从房价分布图可以看出，房价呈现出明显的区域差异，位于中心城区的社区总体经济水平较高；位于郊区的社区，房价分化差异明显，表明社区经济发展水平差异较大。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281100740.jpg" alt="图3 广州市各社区平均房价热力图"></p>
+<p>社区人口较为密集地的地区主要分布于中心城区及其外围区域，呈现出自中心城区向周边地区逐渐减少的空间特征。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281100373.jpg" alt="图4 广州市各社区居住人口热力图"></p>
+<h3 id="城市绿地碳汇公平性分析"><a href="#城市绿地碳汇公平性分析" class="headerlink" title="城市绿地碳汇公平性分析"></a>城市绿地碳汇公平性分析</h3><h4 id="城市绿地碳汇公平性评分-CSES）方法"><a href="#城市绿地碳汇公平性评分-CSES）方法" class="headerlink" title="城市绿地碳汇公平性评分(CSES）方法"></a>城市绿地碳汇公平性评分(CSES）方法</h4><p>本研究基于城市绿地碳汇量和社区画像，构建了CSES（城市绿地碳汇公平性评分，Carbon Sink Equity Sorce)评价指标体系。具体计算公式如下：</p>
+<p>① 计算社区碳汇基线目标差分GAP，其通过社区碳汇基线目标减去社区碳汇现实值EC获得，其归一化结果为GAP<sub>score</sub>；公式中GOAL为该类型社区碳汇密度均值，其代表了研究区内碳汇基线目标。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101203.png"></p>
+<p>② 计算城市绿地碳汇公平性评分CSES，其中CSES分数越低，表示该社区在增加绿地和城市碳汇上应有更高优先级。式中E为优先级指数，其代表了优化社区碳汇环境需求的迫切程度，由上述五类因子归一化得出当其趋近1时代表了更迫切的优化需求。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101348.png"></p>
+<h4 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h4><p>基于CSES评价结果，得到广州市社区城市绿地碳汇公平性评价。其中，CSES得分高的社区意味着更高的城市绿地碳汇公平分数，分数越低表明社区有更高的绿地碳汇优化潜力和需求。普遍而言，高评分社区的画像是人口密度适宜、平均房价较低、城中村占比低、空气质量良好、温度适宜、社区绿地碳汇量高的宜居社区。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101597.png" alt="图 5 广州市各社区CSES评分图"></p>
+<p>图5结果显示，广州市CSES的整体分布呈现为“东北高-西南低”的空间分布特点。高分值社区（CSES&gt;80）主要集中于东北部，分布格局较为连续，较少出现低分值社区（CSES&lt;70）；而低分值社区在西部、南部有较多分布，分布格局较为破碎，数量也相对较少。总的来看，广州市社区城市绿地碳汇公平性整体情况较好，但需要注意部分低分值社区的绿地增汇工作。从分数分布区间表可以看出，非中心城区低分值社区主要分布在白云、番禺、黄埔、花都四个区；高分值社区主要分布在从化、增城两区；中心城区低分值社区主要分布在荔湾区，高分值社区主要分布在天河、海珠、越秀三区。</p>
+<p>结合空间分布图分析，白云、花都、黄埔、荔湾四区低分值社区空间分布较为集中，需要针对重点区域的城市绿地空间进行合理优化，提高绿地碳汇水平；番禺区内低分值社区分布较为分散但比重高，可能需要在全区范围推动建成区绿地空间优化，提高城市绿地碳汇水平。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101659.png" alt="图6 中心城区社区CSES评分频数表"></p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281101825.png" alt="图7 非中心城区社区CSES评分频数表"></p>
+<h4 id="社区绿地碳汇公平性和社区功能关系"><a href="#社区绿地碳汇公平性和社区功能关系" class="headerlink" title="社区绿地碳汇公平性和社区功能关系"></a>社区绿地碳汇公平性和社区功能关系</h4><p>结合POI功能分区结果，不难看出CSES低值区与工业类、混合类功能社区高度相关，具体而言，白云区CSES低值社区集中在嘉禾望岗——白云机场一带，该区域居住人口密集，社区碳汇需求高而供给不足，且由于第二产业发达、城中村社区占比高、绿地破碎化严重，导致社区人居环境的碳汇公平性分值较低，表明该类社区在环境增汇方面需要进一步努力。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102516.png" alt="图 8 基于POI的广州市社区功能分类"></p>
+<h3 id="社区内部基于土地功能的绿地碳汇分析"><a href="#社区内部基于土地功能的绿地碳汇分析" class="headerlink" title="社区内部基于土地功能的绿地碳汇分析"></a>社区内部基于土地功能的绿地碳汇分析</h3><p>为探讨不同土地功能与碳汇间的关系，本研究选取了城市中常见的商业、交通、教育、休闲、工业、历史街区这六类地块进行碳汇三维精细化分析。</p>
+<p>公园地块：以天河公园为例说明碳汇分布情况。天河公园在不同区域的碳汇量有明显差异：公园地块的北部以林地为主，植被覆盖度较高，碳汇量较高；中部以水域为主，绿地碳汇量较低。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102735.gif" alt="图 9 公园地块碳汇三维分布图"></p>
+<p>教育地块：以南方医科大学为例说明碳汇分布情况。由于植被集中在北部，南部主要由教学楼等建筑构成，因此碳汇呈现出北部高、南部低的分布特征。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102868.gif" alt="图 10 教育地块碳汇三维分布图"></p>
+<p>历史街区地块：以沙面岛为例说明碳汇分布情况。沙面岛的建筑物众多，缺少大面积的绿化，植被主要以行道树为主，从空间分布上看，碳汇呈现出沿路分布的波浪状特征。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102235.gif" alt="图 11 历史街区地块碳汇三维分布图"></p>
+<p>交通地块：以广州南站为例说明碳汇分布情况。广州南站的植被覆盖较少，植被主要分布在西侧，因而碳汇主要分布在西部，其余区域的碳汇能力较差。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281102157.gif" alt="图 12 交通地块碳汇三维分布图"></p>
+<p>工业地块：以广州民营科技园为例，该工业地块上的建筑密度较高，植被主要分布在建筑之间，整体绿化覆盖率偏低，导致地块的绿地碳汇功能较弱。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281103154.gif" alt="图 13 工业地块碳汇三维分布图"></p>
+<p>商业地块：以花城汇为例说明碳汇分布情况。花城汇地块中心设有绿化广场，整体绿化水平良好，碳汇呈现出四周高、中间低的态势。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281103013.gif" alt="图 14 商业地块碳汇三维分布图"></p>
+<p>综上可得，基于不同类地块的碳汇三维精细化分析可得，城市绿地的碳汇分布与建筑密度、绿化覆盖等特征存在关联性。未来可结合遥感影像和实地调查等数据，对地块上的建筑、植被、土壤等要素的空间分布、几何形态、生物量等进行识别和量化，评估地块的碳汇效益和潜力，并根据设定的地块功能需求和碳汇目标，调整地块上的建筑、植被、土壤等要素的空间位置、形态、数量等，优化地块的规划情况，实现地块的低碳高效利用。</p>
+<h3 id="结论与建议"><a href="#结论与建议" class="headerlink" title="结论与建议"></a>结论与建议</h3><p>整体而言，广州市城市绿地碳汇公平性尽管存在空间分异，但是多数社区的公平性表现良好，即社区内的居民能够较为均衡地享受到绿地碳汇所带来的生态服务和环境效益。碳汇公平性偏低的社区主要与其工业类、混合类的用地性质相关，社区内的绿地破碎，碳汇能力偏低。而且这些社区往往位于城市边缘或老城区，受到历史遗留和空间发展的制约，难以增加绿地面积和改善绿地质量。</p>
+<p>针对上述问题，提出以下建议：①增加城市绿地的总体规模和覆盖率，尤其是在高温、高房价、高人口密度的地区，增加绿色碳汇的供给和需求的匹配度；②优化城市绿地的空间布局和结构，提高绿地的连通性和可达性，促进绿色碳汇的空间分布均衡和公平；③运用先进的技术手段，监测和评估城市社区尺度的绿地的碳汇效应和碳足迹，增强城市绿地的碳管理水平和碳价值认知。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%8F%8C%E7%A2%B3/">双碳</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92/" rel="tag">国土空间规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A2%B3%E4%B8%AD%E5%92%8C/" rel="tag">碳中和</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A2%B3%E8%BE%BE%E5%B3%B0/" rel="tag">碳达峰</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/12/06/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A%E5%85%AC%E5%B9%B3%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">城市公共交通公平性研究——以广州天河区为例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%92%8C%E5%9F%8E%E5%B8%82%E7%A4%BE%E5%8C%BA%E7%94%BB%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">广州市城市绿地碳汇和城市社区画像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%80%BB%E4%BD%93%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87"><span class="nav-number">1.1.</span> <span class="nav-text">广州市总体城市绿地碳汇</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">城市绿地碳汇公平性分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7%E8%AF%84%E5%88%86-CSES%EF%BC%89%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">城市绿地碳汇公平性评分(CSES）方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="nav-number">2.2.</span> <span class="nav-text">结果分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BE%E5%8C%BA%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7%E5%92%8C%E7%A4%BE%E5%8C%BA%E5%8A%9F%E8%83%BD%E5%85%B3%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">社区绿地碳汇公平性和社区功能关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E5%8C%BA%E5%86%85%E9%83%A8%E5%9F%BA%E4%BA%8E%E5%9C%9F%E5%9C%B0%E5%8A%9F%E8%83%BD%E7%9A%84%E7%BB%BF%E5%9C%B0%E7%A2%B3%E6%B1%87%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">社区内部基于土地功能的绿地碳汇分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="nav-number">4.</span> <span class="nav-text">结论与建议</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2023 国地科技-大数据小组 All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <title>城市公共交通公平性研究——以广州天河区为例 | 国地科技-大数据小组</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="多源数据公共交通" />
+  <meta name="keywords" content="公共交通多源数据" />
   
   
   
@@ -29,8 +29,8 @@
 <meta property="article:published_time" content="2022-12-06T02:39:02.000Z">
 <meta property="article:modified_time" content="2023-01-03T07:29:38.946Z">
 <meta property="article:author" content="Haiqi Wang">
-<meta property="article:tag" content="多源数据">
 <meta property="article:tag" content="公共交通">
+<meta property="article:tag" content="多源数据">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%BC%8F1%20%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A%E4%BE%9B%E7%BB%99%E6%8C%87%E6%95%B0%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png">
   
@@ -73,32 +73,10 @@
 
 
   
-  
-  <div class="site-header-image">
-    <img id="originBg" width="100%" alt="Hike News" src="">
-  </div>
-
-  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
-    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
-  </div>
-
-  <script>
-        var imgUrls = "css/images/pose01.jpg,https://source.unsplash.com/collection/954550/1920x1080,https://source.unsplash.com/collection/954550/1920x1081".split(",");
-        var random = Math.floor((Math.random() * imgUrls.length ));
-        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-          document.getElementById("originBg").src=imgUrls[random];
-          document.getElementById("blurBg").src=imgUrls[random];
-        } else {
-          document.getElementById("originBg").src='/' + imgUrls[random];
-          document.getElementById("blurBg").src='/' + imgUrls[random];
-        }
-    </script>
-
-
 
 
 <header id="allheader" class="site-header" role="banner" 
-   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
+   >
   <div class="clearfix container">
       <div class="site-branding">
 
@@ -252,6 +230,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2023/05/17/%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          三维规划时空大数据①|城市绿地碳汇公平性研究
+        
+      </div>
+    </a>
+  
   
     <a href="/2022/09/06/%E5%85%AC%E6%9C%8D%E8%AE%BE%E6%96%BD%E9%85%8D%E7%BD%AE%E7%A0%94%E7%A9%B6/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -322,9 +309,6 @@
 
 
     <!-- headerblur min height -->
-    
-      var headerblur = document.getElementById("header-blur");
-      headerblur.style.minHeight = window.getComputedStyle(document.getElementById("allheader"), null).height;
     
     
 </script>
