@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>城市绿地系统②|行人视角的街区内部绿视率评价 | 国地科技-大数据小组</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="国土空间规划城市绿地绿视率" />
+  
+  
+  
+  
+  <meta name="description" content="绿化评价指标是衡量城市绿化建设成果水平的重要标准，然而现有的城市绿化评价指标如绿地率、绿地覆盖率、人均公园绿地面积等，主要是从二维平面垂直的角度考察城市绿化水平，忽略了三维空间中的绿色资源评估和景观效果。“绿视率”能够衡量人的视野范围内绿色植被的占比，既能反映城市绿化的立体构成，又能体现“以人为本”的城市绿化设计思想。因此，本研究基于行人视角采集街景图像，通过深度学习计算城市典型区域的街道绿视率，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="城市绿地系统②|行人视角的街区内部绿视率评价">
+<meta property="og:url" content="http://example.com/2023/06/28/%E7%BB%BF%E8%A7%86%E7%8E%87/index.html">
+<meta property="og:site_name" content="国地科技-大数据小组">
+<meta property="og:description" content="绿化评价指标是衡量城市绿化建设成果水平的重要标准，然而现有的城市绿化评价指标如绿地率、绿地覆盖率、人均公园绿地面积等，主要是从二维平面垂直的角度考察城市绿化水平，忽略了三维空间中的绿色资源评估和景观效果。“绿视率”能够衡量人的视野范围内绿色植被的占比，既能反映城市绿化的立体构成，又能体现“以人为本”的城市绿化设计思想。因此，本研究基于行人视角采集街景图像，通过深度学习计算城市典型区域的街道绿视率，">
+<meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281134874.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281137315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281138234.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281139986.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281139368.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281140171.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281440916.png">
+<meta property="article:published_time" content="2023-06-27T23:15:15.000Z">
+<meta property="article:modified_time" content="2023-06-28T06:43:03.432Z">
+<meta property="article:author" content="Haiqi Wang">
+<meta property="article:tag" content="国土空间规划">
+<meta property="article:tag" content="城市绿地">
+<meta property="article:tag" content="绿视率">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281134874.png">
+  
+    <link rel="alternate" href="/atom.xml" title="国地科技-大数据小组" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 5px;"  width="298px" height="140px" alt="Hike News" src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B0%8F%E7%BB%84.jpg">
+              </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-绿视率" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      城市绿地系统②|行人视角的街区内部绿视率评价
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/06/28/%E7%BB%BF%E8%A7%86%E7%8E%87/" class="article-date">
+	  <time datetime="2023-06-27T23:15:15.000Z" itemprop="datePublished">June 28, 2023</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0/">城市绿地</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>绿化评价指标是衡量城市绿化建设成果水平的重要标准，然而现有的城市绿化评价指标如绿地率、绿地覆盖率、人均公园绿地面积等，主要是从二维平面垂直的角度考察城市绿化水平，忽略了三维空间中的绿色资源评估和景观效果。“绿视率”能够衡量人的视野范围内绿色植被的占比，既能反映城市绿化的立体构成，又能体现“以人为本”的城市绿化设计思想。因此，本研究基于行人视角采集街景图像，通过深度学习计算城市典型区域的街道绿视率，进一步量化城市三维空间的绿化质量。研究有有助于完善城市绿地规划评价体系和方式，为城市绿色空间品质提升提供量化路径。</p>
+<span id="more"></span>
+
+<h3 id="基于行人视角的街景数据采集"><a href="#基于行人视角的街景数据采集" class="headerlink" title="基于行人视角的街景数据采集"></a>基于行人视角的街景数据采集</h3><p>为了分析城市不同区域的绿视率，本研究选取了典型的城市区域，包括城乡结合部、老城区、居住区、新开发建设区四类区域进行绿视率分析计算，不同的区域分别代表了不同的城市规划模式和特征，具有较高的代表性和对比性。其中城乡结合部包括番禺区和白云区，新开发建设区包括黄埔区，老城区包括海珠区，居住区包括越秀区。</p>
+<p>研究所采用的街景图像均为2022年人工定点拍摄而得，具有较高的时效性。相较于街景车拍摄图像而言，人工拍摄更能还原行人视角的绿视率情况。为了保证数据的质量和准确性，本研究对所有的街景图像进行了人工审核和校正，对于识别错误或遮挡不清的图像进行了剔除或修正，并对所有的图像进行了统一的尺寸转换和批量压缩。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281134874.png" alt="图 1 研究区域分布图"></p>
+<h3 id="评价方法"><a href="#评价方法" class="headerlink" title="评价方法"></a>评价方法</h3><p>街道绿视率的评估方法可能会因地区和研究目的而有所不同，目视解译、阈值法和深度学习是常见的评估方法。本研究分别评估了三种方法的优缺点，并最终采取基于OneFormer的深度学习方法，进行绿视率计算。 </p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>*方法*</strong>*</th>
+<th align="left"><em><strong>*目视解译*</strong></em></th>
+<th align="left"><em><strong>*阈值法*</strong></em></th>
+<th align="left"><em><strong>*深度学习*</strong></em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">优点</td>
+<td align="left">提取方法简单，可直接利用图像处理软件中的颜色选择工具选择植被像素；提取结果最符合人的视觉感知。</td>
+<td align="left">批量化处理图像，提取速度快，针对标准化图像，识别精度高；轻量化模型系统架构简单，减少计算成本。</td>
+<td align="left">精准识别图像的各类要素，受图片质量影响较小；按物体整体轮廓提取要素，分割提取信息较为完整。</td>
+</tr>
+<tr>
+<td align="center">缺点</td>
+<td align="left">人工识别耗时长、成本高，不适合处理大量数据样本。</td>
+<td align="left">提取对象仅限于绿植，对图片样本质量要求较高。</td>
+<td align="left">模型计算量较大，硬件成本较高。</td>
+</tr>
+</tbody></table>
+<p>本研究的绿视率方法具体步骤如下：</p>
+<p>①根据街道实地调研，以50m间隔采样，得到不同道路级别的街景图像，包括部分城中村内布路；</p>
+<p>②利用OpenCV图像融合算法，将不同位置视角的街景图像进行融合处理，形成街道沿街图像数据；</p>
+<p>③使用预训练模型OneFormer对街景图像数据进行语义分割，并输出各类像元的统计表；</p>
+<p>④将要素提取结果与采样点进行空间连接，为后续分析提供数据基础。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281137315.png" alt="图 2 基于深度学习的道路绿视率提取方法流程图"></p>
+<h3 id="研究结果"><a href="#研究结果" class="headerlink" title="研究结果"></a>研究结果</h3><p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281138234.png" alt="图 3 越秀区典型区域各道路平均绿视率图"></p>
+<p>越秀区调查居住区内各道路平均绿视率较高，低值道路仅出现在主干道上，说明社区内部道路空间绿化质量较好，行人步行适宜度高。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281139986.png" alt="图 4 海珠区典型区域各道路平均绿视率图"></p>
+<p>海珠区老城样本区域内各道路平均绿视率相对较低，绿视率等级均在中及以下，低值道路出现在宝岗大道沿线以及社区内城中村道路上，受建成空间条件限制，区域整体道路绿化质量一般。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281139368.png" alt="图 5 黄埔区典型区域各道路平均绿视率图"></p>
+<p>黄埔区新开发样本区域，各道路绿视率中等且值相对均匀，意味着区域开发建设水平较为一致。其中绿视率等级为良的道路分布在区域内干道上，区域外围靠近外环路道路绿视率等级较低。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281140171.png" alt="图 6 白云区典型区域各道路平均绿视率图"></p>
+<p>白云区城乡结合部样本区域，各道路绿视率等级分布情况与黄浦区典型区域相似，但空间分布更有规律，其中绿视率等级为良的道路分布在南街与东街，而北街与西街道路绿视率等级较低。</p>
+<p><img src="https://raw.githubusercontent.com/guodi-bigdata/images/main/images/202306281440916.png" alt="图 7 番禺区典型区域各道路平均绿视率图"></p>
+<p>番禺区城乡结合部样本镇区，镇内道路绿视率等级整体较低且差异较大，区域内部城中村道路，受到历史建成空间格局影响，绿视率等级较低。高值道路分别分布在区域外围新建道路，以及传统城中村中心区域。</p>
+<p>综上所述，基于典型城市区域绿视率计算结果可以看出，每种类型的区域内道路绿视率水平都有接近性，凸显了不同城市空间形态的绿化程度具有其相应特征。而不同类型区域道路绿化质量存在差异，说明不同的城市区域空间形态、发展水平和规划，一定程度上会影响城市三维空间绿化质量。越秀居住区是绿视率等级较高的区域类型，说明区域内居民在对城市三维空间绿化感知效果较为良好，较为充分地享受到绿化建设带来的环境效益。绿视率等级较低的区域主要与其区域类型有关，新开发建设地区的绿化建设伊始，相应设施场所还未完善，还有较大的提升空间。而城乡结合部和老城区，往往受到历史遗留和空间发展的制约，难以增加改善道路绿化。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>本研究基于行人视角采集街景图像，结合深度学习算法计算了城市典型区域的街道绿视率，并对每一区域进行了针对性分析。采用街道绿视率指标来评价城市绿化建设成果，相比大尺度的城市绿地指标，更能凸显区域建成空间特征和区域绿化分布。监测和评估城市道路绿视率水平，有助于量化城市三维空间绿化质量，完善城市绿地评价体系，增强城市绿地认知和管理水平。这对城市专项规划、详细性规划可以提供更明确、详细的数据分析支撑，为城市片区更新和改造策略提供更丰富的量化细节。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0/">城市绿地</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92/" rel="tag">国土空间规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%8E%E5%B8%82%E7%BB%BF%E5%9C%B0/" rel="tag">城市绿地</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%BF%E8%A7%86%E7%8E%87/" rel="tag">绿视率</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/05/17/%E7%A2%B3%E6%B1%87%E5%85%AC%E5%B9%B3%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">城市绿地系统①|城市绿地碳汇公平性研究</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%A1%8C%E4%BA%BA%E8%A7%86%E8%A7%92%E7%9A%84%E8%A1%97%E6%99%AF%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">基于行人视角的街景数据采集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">评价方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">研究结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2023 国地科技-大数据小组 All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
